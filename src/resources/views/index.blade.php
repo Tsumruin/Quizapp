@@ -1,5 +1,11 @@
 @extends('layout')
 
+@section('header')
+    <h1>List Selection</h1>
+@endsection
+
 @section('content')
-    <p>test</p>
+    <a href="/tasks">
+        <button class="btn btn-primary">Task</button>
+    </a>
 @endsection

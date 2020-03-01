@@ -11,7 +11,15 @@
 |
 */
 
-
-Route::get('/', function () {
+Route::get('/', function (){
     return view('index');
 });
+
+Route::get('/tasks', 'TaskController@display');
+
+Route::post('/tasks', 'TaskController@store');
+
+Route::get('/tasks/create', 'TaskController@create');
+
+Route::get('/tasks/{task}', 'TaskController@show');
+

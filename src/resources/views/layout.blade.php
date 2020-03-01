@@ -13,18 +13,33 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-        <a class="navbar-brand" href="#">{{ config('app.name', 'Laravel') }}</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="#">Tasks</a></li>
-          </ul>
-        </div>
-      </nav>
-    @yield('content')
+		<a class="navbar-brand" href="/">{{ config('app.name', 'Laravel') }}</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="/tasks">Tasks</a></li>
+				</ul>
+		</div>
+	</nav>
+
+  	<div class="container">
+		@if(session('message'))
+		<div class="alert alert-success alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			{{@session('message')}}
+		</div>
+		@endif
+
+		@yield('header')
+
+		@yield('content')
+
+	</div>
+
 </body>
 <footer>
     <!-- Scripts -->

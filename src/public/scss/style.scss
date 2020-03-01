@@ -1,3 +1,43 @@
-p{
-    color: red;
+$card-color: rgba(0, 0, 0, 0.125);
+
+.center{
+    text-align: center;
+}
+
+.right{
+    text-align: right;
+    display: inline-block;
+}
+
+.left{
+    text-align: left;
+    display: inline-block;
+}
+
+.head-title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-submit{
+    text-align: right;
+}
+
+.card-header{
+    font-size: 2em;
+}
+
+.card-body{
+    padding: .5em!important;
+}
+
+.card-title{
+    font-size: 1.5em;
+    border-bottom: solid 1px $card-color;
+    margin: 0!important;
+    + div{
+        font-size: 1.1em;
+        padding: .5em 0;
+        background-color: #ffffff;
+    }
 }
