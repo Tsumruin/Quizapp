@@ -23,7 +23,7 @@ class TaskController extends Controller
             'completed'
         ];
         return view('tasks.index', [
-            'tasks' => Task::orderBy('id')->get($columns),
+            'tasks' => Task::orderBy('completed')->orderBy('id')->orderBy('due_date')->get($columns),
             'columns' => $columns
         ]);
     }
@@ -53,5 +53,34 @@ class TaskController extends Controller
     public function create()
     {
         return view('tasks.create');
+    }
+
+    public function edit($id)
+    {
+        $task = Task::find($id);
+        return view('tasks.edit', ['task' => $task]);
+    }
+
+    public function update($id)
+    {
+        request()->validate([
+            'subject' => 'required',
+            'due_date' => 'required'
+        ]);
+        $task = Task::find($id);
+
+        $task->subject = request('subject');
+        $task->description = request('description');
+        $task->due_date = request('due_date');
+        $task->completed = request('completed');
+
+        $task->save();
+
+        return redirect('/tasks');
+    }
+
+    public function delete($id){
+        return redirect('/tasks');
+        Task::destroy($id);
     }
 }

@@ -22,8 +22,10 @@
       <th style="text-align: right;">Option</th>
     </thead>
 
+    <tbody>
     @foreach ($tasks as $task)
-      <tbody>
+        @php $task->completed ? $flag = true : $flag = false @endphp
+        <tr style="background-color: @if ($flag) rgba(0, 0, 0, 0.05) @else #ffffff @endif;">
           <td>{{ $task->id }}</td>
           <td>{{ $task->subject }}</td>
           <td>{{ $task->description }}</td>
@@ -38,12 +40,15 @@
             <a href="/tasks/{{ $task->id }}/edit">
               <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</button>
             </a>
-            <a href="/tasks/{{ $task->id }}/edit">
+            <form action="/task/{{ $task->id }}" method="POST" style="display: inline;" onsubmit="return confirm('Do you really delete this?');">
+              @csrf
+              @method('delete')
               <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>
-            </a>
+            </form>
           </td>
-      </tbody>
+        </tr>
     @endforeach
+  </tbody>
 
   </table>
 @endif

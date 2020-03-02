@@ -19,7 +19,12 @@ Route::get('/tasks', 'TaskController@display');
 
 Route::post('/tasks', 'TaskController@store');
 
+Route::put('/tasks/{task}', 'TaskController@update');
+
+Route::delete('/tasks/{task}', 'TaskController@delete');
+
 Route::get('/tasks/create', 'TaskController@create');
 
 Route::get('/tasks/{task}', 'TaskController@show');
 
+Route::get('/tasks/{task}/edit', 'TaskController@edit');
