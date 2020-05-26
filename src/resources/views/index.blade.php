@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <a href="/tasks">
-        <button class="btn btn-primary">Task</button>
+    <a href="/lists">
+        <button class="btn btn-primary">List</button>
     </a>
 @endsection

@@ -15,16 +15,21 @@ Route::get('/', function (){
     return view('index');
 });
 
-Route::get('/tasks', 'TaskController@display');
+// Route::get('/tasks', 'TaskController@display');
 
-Route::post('/tasks', 'TaskController@store');
+// Route::post('/tasks', 'TaskController@store');
 
-Route::put('/tasks/{task}', 'TaskController@update');
+// Route::put('/tasks/{task}', 'TaskController@update');
 
-Route::delete('/tasks/{task}', 'TaskController@delete');
+// Route::delete('/tasks/{task}', 'TaskController@delete');
 
-Route::get('/tasks/create', 'TaskController@create');
+// Route::get('/tasks/create', 'TaskController@create');
 
-Route::get('/tasks/{task}', 'TaskController@show');
+// Route::get('/tasks/{task}', 'TaskController@show');
 
-Route::get('/tasks/{task}/edit', 'TaskController@edit');
+// Route::get('/tasks/{task}/edit', 'TaskController@edit');
+
+Route::prefix('quiz')->group(function () {
+    Route::get('/', 'QuizController@index');
+    Route::post('/', 'QuizController@store');
+});
