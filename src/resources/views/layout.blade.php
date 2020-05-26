@@ -9,7 +9,7 @@
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <title>ToDoList</title>
+    <title>Quiz</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
@@ -18,9 +18,9 @@
 				<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link" href="/tasks">Tasks</a></li>
-				</ul>
+			<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="/tasks">Tasks</a></li>
+			</ul>
 		</div>
 	</nav>
 

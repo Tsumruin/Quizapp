@@ -40,7 +40,7 @@
             <a href="/tasks/{{ $task->id }}/edit">
               <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</button>
             </a>
-            <form action="/task/{{ $task->id }}" method="POST" style="display: inline;" onsubmit="return confirm('Do you really delete this?');">
+            <form action="/tasks/{{ $task->id }}" method="POST" style="display: inline;" onsubmit="return confirm('Do you really delete this?');">
               @csrf
               @method('delete')
               <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>

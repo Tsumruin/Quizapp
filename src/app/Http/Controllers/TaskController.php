@@ -80,7 +80,7 @@ class TaskController extends Controller
     }
 
     public function delete($id){
-        return redirect('/tasks');
         Task::destroy($id);
+        return redirect('/tasks');
     }
 }
