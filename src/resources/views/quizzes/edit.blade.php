@@ -10,7 +10,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form method='POST' action='/tasks/{{ $task->id }}'>
+        <form method='POST' action='/quizzes/{{ $quiz->id }}'>
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -25,7 +25,7 @@
                     name="subject"
                     class="form-control"
                     id="subject"
-                    value="{{ $task->subject }}"
+                    value="{{ $quiz->subject }}"
                 >
             </div>
             <div class="form-group">
@@ -35,7 +35,7 @@
                     name="description"
                     class="form-control"
                     id="description"
-                >{{ $task->description }}</textarea>
+                >{{ $quiz->description }}</textarea>
             </div>
             <div class="form-group">
                 <label for="due_date-field">Due Date</label>
@@ -49,16 +49,16 @@
                     name="due_date"
                     class="form-control"
                     id="due_date"
-                    value="{{ $task->due_date }}"
+                    value="{{ $quiz->due_date }}"
                 >
             </div>
             <div class="form-group">
                 <label for="completed-field" class="control-label">Condition</label>
                 <div>
-                    <input id="done" type="radio" name="completed" value="1" @if ($task->completed) checked @endif> 
+                    <input id="done" type="radio" name="completed" value="1" @if ($quiz->completed) checked @endif> 
                     <label for="done">Done</label>
                     <br>
-                    <input id="not" type="radio" name="completed" value="0" @if (!$task->completed) checked @endif>
+                    <input id="not" type="radio" name="completed" value="0" @if (!$quiz->completed) checked @endif>
                     <label for="not">Not Yet</label>
                 </div>
                 </div>

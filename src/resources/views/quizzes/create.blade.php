@@ -2,7 +2,7 @@
 
 @section('header')
 <div class="head-title">
-    <h1>Create New Task</h1>
+    <h1>Create New Quiz</h1>
     <button type="button" onclick="history.back()" class="btn btn-primary">戻る</button>
 </div>
 @endsection
@@ -10,7 +10,7 @@
 @section('content')
     <div class="panel panel-default">
         <div class="panel-body">
-            <form method='POST' action='/tasks'>
+            <form method='POST' action='/quizzes'>
                 @csrf
                 <div class="form-group">
                     <label for="subject" class="control-label">Subject</label>

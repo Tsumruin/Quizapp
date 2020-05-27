@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Schema;
 
 class QuizController extends Controller
 {
-    // public function getColList()
-    // {
-    //     return Schema::getColumnListing('tasks');
-    // }
-
     public function index()
     {
         $columns = [
@@ -22,15 +17,15 @@ class QuizController extends Controller
             'due_date',
             'completed'
         ];
-        return view('tasks.index', [
-            'tasks' => Quiz::orderBy('completed')->orderBy('id')->orderBy('due_date')->get($columns),
+        return view('quizzes.index', [
+            'quizzes' => Quiz::orderBy('completed')->orderBy('id')->orderBy('due_date')->get($columns),
             'columns' => $columns
         ]);
     }
 
     public function show($id){
-        $task = Quiz::find($id);
-        return view('tasks.show', ['task' => $task]);
+        $quiz = Quiz::find($id);
+        return view('quizzes.show', ['quiz' => $quiz]);
     }
 
     public function store()
@@ -40,47 +35,46 @@ class QuizController extends Controller
             'due_date' => 'required'
         ]);
 
-        $task = new Quiz();
-        $task->subject = request('subject');
-        $task->description = request('description');
-        $task->due_date = request('due_date');
+        $quiz = new Quiz();
+        $quiz->subject = request('subject');
+        $quiz->description = request('description');
+        $quiz->due_date = request('due_date');
 
-        $task->save();
+        $quiz->save();
 
-        return redirect('/tasks');
+        return redirect('/quizzes');
     }
 
     public function create()
     {
-        return view('tasks.create');
+        return view('quizzes.create');
     }
 
     public function edit($id)
     {
-        $task = Quiz::find($id);
-        return view('tasks.edit', ['task' => $task]);
+        $quiz = Quiz::find($id);
+        return view('quizzes.edit', ['quiz' => $quiz]);
     }
 
-    public function update($id)
+    public function update(Quiz $quiz)
     {
         request()->validate([
             'subject' => 'required',
             'due_date' => 'required'
         ]);
-        $task = Quiz::find($id);
 
-        $task->subject = request('subject');
-        $task->description = request('description');
-        $task->due_date = request('due_date');
-        $task->completed = request('completed');
+        $quiz->subject = request('subject');
+        $quiz->description = request('description');
+        $quiz->due_date = request('due_date');
+        $quiz->completed = request('completed');
 
-        $task->save();
+        $quiz->save();
 
-        return redirect('/tasks');
+        return redirect('/quizzes');
     }
 
-    public function delete($id){
-        Quiz::destroy($id);
-        return redirect('/tasks');
+    public function destroy(Quiz $quiz){
+        $quiz->delete();
+        return redirect('/quizzes');
     }
 }

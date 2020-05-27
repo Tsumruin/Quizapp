@@ -29,7 +29,11 @@ Route::get('/', function (){
 
 // Route::get('/tasks/{task}/edit', 'TaskController@edit');
 
-Route::prefix('quiz')->group(function () {
-    Route::get('/', 'QuizController@index');
-    Route::post('/', 'QuizController@store');
-});
+Route::resource('quizzes', 'QuizController');
+
+// Route::prefix('quiz')->group(function () {
+//     Route::get('/', 'QuizController@index');
+//     Route::post('/', 'QuizController@store');
+//     Route::get('/create', 'QuizController@create');
+//     Route::get('/{quiz}', 'QuizController@show');
+// });

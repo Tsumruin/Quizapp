@@ -10,15 +10,15 @@
 
 @section('content')
 <div class="card center">
-    <h5 class="card-header">{{ $task->subject }}</h5>
+    <h5 class="card-header">{{ $quiz->subject }}</h5>
     <div class="card-body row no-gutters">
         <div class="col-12">
             <div class="card-title">
                 Description
             </div>
             <div>
-                @if ($task->description)
-                    {{ $task->description }}
+                @if ($quiz->description)
+                    {{ $quiz->description }}
                 @else
                     No Description
                 @endif
@@ -30,12 +30,12 @@
                 Due Date
             </div>
             <div>
-                @if ($task->due_date)
-                    {{ $task->due_date }}
+                @if ($quiz->due_date)
+                    {{ $quiz->due_date }}
                 @else
                     No Time Limit
                 @endif
-                {{ $task->due_date }}
+                {{ $quiz->due_date }}
             </div>
         </div>
         <div class="col-6">
@@ -43,7 +43,7 @@
                 Condition
             </div>
             <div>
-                @if ($task->completed)
+                @if ($quiz->completed)
                     Done
                 @else
                     Undergoing
