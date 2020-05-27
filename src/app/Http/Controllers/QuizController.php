@@ -23,8 +23,7 @@ class QuizController extends Controller
         ]);
     }
 
-    public function show($id){
-        $quiz = Quiz::find($id);
+    public function show(Quiz $quiz){
         return view('quizzes.show', ['quiz' => $quiz]);
     }
 
@@ -50,9 +49,8 @@ class QuizController extends Controller
         return view('quizzes.create');
     }
 
-    public function edit($id)
+    public function edit(Quiz $quiz)
     {
-        $quiz = Quiz::find($id);
         return view('quizzes.edit', ['quiz' => $quiz]);
     }
 
